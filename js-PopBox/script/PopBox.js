@@ -33,7 +33,7 @@ class PopBox {
         var box = evt.currentTarget;
         if(box.popLatched){
             box.popLatched = false;
-            box.unpop(box);
+            // box.unpop(box);
         }
         else{
             box.popLatched = true;
