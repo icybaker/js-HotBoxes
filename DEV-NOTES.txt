@@ -1,0 +1,27 @@
+Normal Procecdure
+Develope HotBox source code in its own repo's dev branch. After 
+passing standalone tests, merge with master branch and push --all 
+to the origin. Then, to test compatibillity in the Suite repo, 
+pull the now-up-to-date master branches into the submodules using
+the command
+
+    git submodule foreach git pull origin master
+
+This pull will result in changes to the Suite Repo, so it's a good
+idea at this point to add and commit those changes to the dev branch
+of the Suite repo.
+
+
+These notes define the workflow for developing HotBox compatibillity.
+Each HotBox object has it's own submodule within this repository,
+each submodule has a master branch and a dev branch. When working on
+compatibillity, switch the repository and all submodules to the dev
+branch. Changes may be made to submodule source code from here, but
+only in the dev branch. After changes are committed, push them to 
+the dev branch on the origin, from which the submodule's own repos
+can then pull changes into it's own dev branch to test standalone
+functionality before committing to the master branch. After Changes
+have been committed to the master, switch back to the Suite repo,
+switch submodules to their master branches and pull from origin.
+Now, test compatibillity functionality. If staisfied, commit changes,
+switch to master branch, merge, final test, commit, and push.

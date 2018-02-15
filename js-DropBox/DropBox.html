@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+		<title>DropBox Tester</title> 
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style/normalize.css" media="all"/>
+		<link rel="stylesheet" type="text/css" href="style/main.css" media="all"/>
+        <script src="script/DropBox.js"></script> 
+        <script src="script/TweenMax.js"></script>      
+    </head>
+
+    <body>
+        <div class="drop-box">
+            <div class="db-label">This is a DropBox</div>
+            <div class="db-list">
+                <div class="drop-box">
+                    <div class="db-label">This is a DropBox</div>
+                    <div class="db-list">
+                        <div class="db-list-item">
+                            <a src="blank">This is the first list item of the DropBox</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="drop-box">
+                    <div class="db-label">This is a DropBox</div>
+                    <div class="db-list">
+                        <div class="db-list-item">
+                            <a src="blank">This is the first list item of the DropBox</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <script>
+            var myDropBoxes = DropBox.initDropBoxes(".drop-box");
+            //DropBox._doc();
+        </script>
+
+
+    </body>
+
+</html>
