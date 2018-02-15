@@ -33,9 +33,10 @@ class DropBox {
         return contentArea;
     }
     _initStyle(box,label,list){
-        box.style.height = window.getComputedStyle(label,null).height;
+        box.style.height = "auto";        
         if(window.getComputedStyle(label,null).cursor=="auto"){label.style.cursor="default";} 
         if(!label.showMenu){list.style.display = "none";}
+        // else{list.style.display = "block";}
     }
     static attachListener(element,action,listenerFunction){
         element.addEventListener(action,listenerFunction,false);

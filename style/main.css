@@ -1,6 +1,6 @@
 .drop-box{
-    /* display: inline-block; */
-    vertical-align: top;
+    display: block;
+    /* vertical-align: top; */
 }
 .menu-button-box {
     right: 0%;
