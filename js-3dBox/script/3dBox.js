@@ -3,8 +3,8 @@ class ThreeDBox {
         this.isMobile = this.checkMobile();
         this._createCore(box,buttons);
         this._initStyles(box);
-        ThreeDBox.attachListener(box.faces[0],"load",this._initPositions);
-        box.centerMeH = this.centerElement;
+        ThreeDBox.attachListener(box.faces[0],"load",this._initGeometry);
+        // box.centerElement = this.centerElement;
     }
     checkMobile(){
         var W = window.innerWidth, H = window.innerHeight;
@@ -73,33 +73,49 @@ class ThreeDBox {
         console.log(height);        
         box.style.position = "relative";
         box.rotator.style.position = "relative";
+        box.rotator.style.perspective = "200px";
+        box.rotator.style.transformStyle = "preserve-3d";
         // box.rotator.style.display = "inline-block";        
         box.rotator.style.height = height+"px";
          for(var i=0;i<numFaces;i++){
             box.faces[i].style.position = "absolute";
             box.faces[i].style.height = height+"px";  
+            // box.faces[i].style.transformStyle = "preserve-3d"; 
         } 
     }
-    _initPositions(evt){
-        var box = evt.currentTarget.parentElement.parentElement, rotator = box.rotator, faces = box.faces,numFaces = faces.length;
+    _initGeometry(evt){
+        var box = evt.currentTarget.parentElement.parentElement, rotator = box.rotator, faces = box.faces, numFaces = faces.length;
         var maxWidth = 0;
         // console.log(faces[numFaces-1].clientWidth);
         for(var i=0;i<numFaces;i++){
             if(faces[i].clientWidth > maxWidth){maxWidth = faces[i].clientWidth;}
         }
-        var width = maxWidth;
-        rotator.style.width = 2*width+"px";
-        box.centerMeH(rotator);
+        
+        rotator.style.width = 2*maxWidth+"px";
+        ThreeDBox.centerElement(rotator);
         for(i=0;i<numFaces;i++){
-            box.centerMeH(faces[i]);
+            ThreeDBox.centerElement(faces[i]);
         }
+        ThreeDBox.init3D(faces,maxWidth);
     }
-    centerElement(element){
+    static centerElement(element){
         var parent = element.parentElement, w = element.clientWidth, W = parent.clientWidth;
         element.style.left = ((W-w)/2)+"px";
     }
+    static init3D(faces,maxWidth){
+        var numFaces = faces.length, theta = 360/numFaces, origin = ThreeDBox.getOrigin((theta/2)*(Math.PI/180),maxWidth/2);
+        console.log(origin);
+        for(var i=0;i<numFaces;i++){
+            TweenMax.to(faces[i],2,{rotationY:(i*theta),transformOrigin:origin});
+        }
 
-
+    }
+    static getOrigin(phi,w){
+        var originZ = Math.trunc(-w/Math.tan(phi));
+        var origin = "50% 50% " + originZ + "px";
+        // console.log(origin);
+        return origin;
+    }
 
     static initThreeDBoxes(selector,{buttons = "off"}={}){
         var boxes = document.querySelectorAll(selector), numBoxes = boxes.length;
