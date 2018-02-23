@@ -2,20 +2,30 @@
 
 <html>
     <head>
-		<title>DropBox Tester</title> 
+		<title>ClickBox Tester</title> 
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="style/normalize.css" media="all"/>
 		<link rel="stylesheet" type="text/css" href="style/main.css" media="all"/>
-        <script src="script/DropBox.js"></script> 
+        <script src="../js-PopBox/script/PopBox.js"></script>
+        <script src="script/ClickBox.js"></script> 
         <script src="script/TweenMax.js"></script>      
     </head>
-
+    <body>
     
-        
+        <div class="click-box">
+            <!-- <div class="left-button"></div> -->
+            <img src="images/gearLogo.png">
+            <img src="images/gsLogo.png">
+            <img src="images/labviewLogo.png">
+            <img src="images/linuxLogo.png">
+            <img src="images/matlabLogo.png">
+            <img src="images/ouLogo.png">
+            <!-- <div class="right-button"></div>             -->
+        </div>
 
 
         <script>
-            
+            ClickBox.initClickBoxes(".click-box",{buttons:"auto"});
         </script>
 
 

@@ -40,8 +40,8 @@ class ThreeDBox {
             box.button.right.appendChild(document.createElement("div"));    
             box.button.right.textBox = box.button.right.children[0];            
 
-            box.button.left.textBox.innerHTML = "<b>&#8249;</b>"
-            box.button.right.textBox.innerHTML = "<b>&#8250;</b>"
+            box.button.left.textBox.innerHTML = "<b>&#8249;</b>";
+            box.button.right.textBox.innerHTML = "<b>&#8250;</b>";
             console.log("create core activated");
             PopBox.initPopBoxes(".rotate-button",{color1:"rgba(100,100,100,100)",color2:"rgba(255,255,255,0)",backgroundColor1:"transparent",backgroundColor2:"rgba(0,0,0,100)"});
 
