@@ -31,8 +31,8 @@ class ClickBox {
         }
         leftButton.setAttribute("class","left-button");
         rightButton.setAttribute("class","right-button");
-        new PopBox(leftButton,["rgba(0,0,0,.6)","rgba(0,0,0,.2)"],["white","rgba(0,0,0,.6)"]);
-        new PopBox(rightButton,["rgba(0,0,0,.6)","rgba(0,0,0,.2)"],["white","rgba(0,0,0,.6)"]);
+        new PopBox(leftButton,["rgba(0,0,0,.6)","rgba(0,0,0,.2)"],["white","rgba(0,0,0,.6)"],false);
+        new PopBox(rightButton,["rgba(0,0,0,.6)","rgba(0,0,0,.2)"],["white","rgba(0,0,0,.6)"],false);
         box.appendChild(contentContainer);
         box.appendChild(leftButton);
         box.appendChild(rightButton);

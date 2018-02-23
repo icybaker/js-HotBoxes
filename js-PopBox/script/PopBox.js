@@ -1,11 +1,13 @@
 class PopBox {
-    constructor(box,initColors,popColors){
+    constructor(box,initColors,popColors,latchOnClick){
         this._initProperties(box,initColors,popColors);
         
         PopBox.attachListener(box,"mouseenter",this._ev_pop);
         PopBox.attachListener(box,"mouseleave",this._ev_unpop);
-        PopBox.attachListener(box,"click",this._ev_latchPop);
-        PopBox.attachListener(box,"click",this._ev_stopPropagation);
+        if(latchOnClick){
+            PopBox.attachListener(box,"click",this._ev_latchPop);
+            PopBox.attachListener(box,"click",this._ev_stopPropagation);
+        }
 
         this._initStyles(box);
     }
@@ -70,16 +72,18 @@ class PopBox {
         }
     }
 
-    _initStyles(element){
-        if(window.getComputedStyle(element,null).cursor=="auto"){element.style.cursor="default";} 
+    _initStyles(box){
+        if(window.getComputedStyle(box,null).cursor=="auto"){box.style.cursor="default";}
+        box.style.color = box.initColors[0];
+        box.style.backgroundColor = box.initColors[1];
     }
 
-    static initPopBoxes(selector,{color1 = "black",color2 = "white",backgroundColor1 = "white",backgroundColor2 = "black",initColors = [color1,backgroundColor1],popColors = [color2,backgroundColor2]}={}){
+    static initPopBoxes(selector,{latchOnClick = true,color1 = "black",color2 = "white",backgroundColor1 = "white",backgroundColor2 = "black",initColors = [color1,backgroundColor1],popColors = [color2,backgroundColor2]}={}){
         var boxes = document.querySelectorAll(selector), numBoxes = boxes.length;
         var popBoxes = new Array(numBoxes);
         if(window.PopBoxes == undefined){window.PopBoxes = [];}
         for(var i=0;i<numBoxes;i++){
-            popBoxes[i] = new PopBox(boxes[i],initColors,popColors);
+            popBoxes[i] = new PopBox(boxes[i],initColors,popColors,latchOnClick);
             popBoxes[i].box = boxes[i];
             window.PopBoxes.push(popBoxes[i]);
             
