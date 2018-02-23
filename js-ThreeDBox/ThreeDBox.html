@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<title>ThreeDBox Tester</title> <!--Revision #3.0 by J. Wiens-->
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style/normalize.css" media="all"/>
+		<link rel="stylesheet" type="text/css" href="style/main.css" media="all"/>
+		<script src="script/TweenMax.js"></script>
+        <script src="script/TimelineMax.js"></script>
+        <!--<script src="script/jquery-3.3.1.js"></script>-->
+        <script src="script/main.js"></script>
+        <script src="../js-PopBox/script/PopBox.js"></script>
+        <script src="../js-ClickBox/script/ClickBox.js"></script>
+        <script src="script/ThreeDBox.js"></script>       
+
+    </head>
+    
+    <body>
+
+        <div class="three-d-box">
+            <!-- <div class = "rotate-button-left"></div> -->
+            <img src="images/gearLogo.png">
+            <img src="images/gsLogo.png">
+            <img src="images/labviewLogo.png">
+            <img src="images/linuxLogo.png">
+            <img src="images/matlabLogo.png">
+            <img src="images/ouLogo.png">
+            <!-- <div class = "rotate-button-right"></div>             -->
+        </div>
+        
+        <script>
+            var my3dBoxes = ThreeDBox.initThreeDBoxes(".three-d-box",{buttons : "auto",spin : true});
+            /* init();
+            initCube("cc1",-400,4,['','','','','','']);
+            //centerElement("cc1"); */
+        </script>
+
+    </body>
+
+</html>

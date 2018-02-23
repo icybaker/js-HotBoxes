@@ -14,10 +14,22 @@ class ReelBox extends ClickBox {
         box.itemCur = box.content.children[box.indexCur];
         box.itemNxt = box.content.children[box.indexCur];
         box.initContent = this._initContent;
+        /*this method is run by ClickBox, because ClickBox alone
+        will not do anything to the content. It does however, 
+        expect there to be an initContent method assigned to the 
+        box as a property and will call it. The reason it is done 
+        this way is because ClickBox already waits until every item
+        in the content container has loaded, and it is likely that
+        the initialization of the content container will also be
+        dependant on the loaded size of the content items, so it
+        makes sense to simply call an arbitrary initContent method
+        at the same time.*/
+
     }
     _initContent(box,content){
         var items = content.children, numItems = box.numItems; 
         var indexCur = box.indexCur, contentWidth = box.maxContentWidth;
+        box.style.overflow = "hidden";        
         for(var i=0;i<numItems;i++){
             if(i != indexCur){items[i].style.display = "none";}
             else{

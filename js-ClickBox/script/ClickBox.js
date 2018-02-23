@@ -52,8 +52,7 @@ class ClickBox {
         else{var height = box.clientHeight;}
         box.style.position = "relative";
         box.style.height = height+"px";
-        console.log(box.style.height);
-        box.style.overflow = "hidden";
+        box.content.style.position = "relative";
         var contentItems = box.content.children, numItems = contentItems.length;
         for(var i=0;i<numItems;i++){
             contentItems[i].style.position = "absolute";
@@ -111,9 +110,13 @@ class ClickBox {
 
         rightTB.style.fontSize = 2*rightB.clientWidth+"px";
         
-        box.initContent(box,content);
+        try{box.initContent(box,content);}
+        catch{console.log("box has no initContent method or it failed");}
     }
-
+    static centerElement(element){
+        var parent = element.parentElement, w = element.clientWidth, W = parent.clientWidth;
+        element.style.left = ((W-w)/2)+"px";
+    }
     static initClickBoxes(selector,{buttons = "auto"}={}){
         var boxes = document.querySelectorAll(selector), numBoxes = boxes.length;
         var clickBoxes = new Array(numBoxes);
