@@ -41,17 +41,19 @@ class ClickBox {
         box.leftButton = box.children[1];
         box.content = box.children[0];
         box.rightButton = box.children[2];
-
+        
         box.numItems = box.content.children.length;
         box.i = 0;
         box.maxContentWidth = 0;
     }
     _initStyles(box,buttons){
         //highly recommended to set the height yourself
-        if(box.clientHeight < 40 || box.clientHeight > .9*window.innerHeight){var height = .3*window.innerHeight;}
+        if(box.clientHeight < 60 || box.clientHeight > .9*window.innerHeight){var height = .3*window.innerHeight;}
         else{var height = box.clientHeight;}
         box.style.position = "relative";
         box.style.height = height+"px";
+        console.log(box.style.height);
+        box.style.overflow = "hidden";
         var contentItems = box.content.children, numItems = contentItems.length;
         for(var i=0;i<numItems;i++){
             contentItems[i].style.position = "absolute";
@@ -109,7 +111,7 @@ class ClickBox {
 
         rightTB.style.fontSize = 2*rightB.clientWidth+"px";
         
-        
+        box.initContent(box,content);
     }
 
     static initClickBoxes(selector,{buttons = "auto"}={}){
