@@ -78,7 +78,7 @@ class PopBox {
         box.style.backgroundColor = box.initColors[1];
     }
 
-    static initPopBoxes(selector,{latchOnClick = true,color1 = "black",color2 = "white",backgroundColor1 = "white",backgroundColor2 = "black",initColors = [color1,backgroundColor1],popColors = [color2,backgroundColor2]}={}){
+    static initBoxes(selector,{latchOnClick = true,color1 = "black",color2 = "white",backgroundColor1 = "white",backgroundColor2 = "black",initColors = [color1,backgroundColor1],popColors = [color2,backgroundColor2]}={}){
         var boxes = document.querySelectorAll(selector), numBoxes = boxes.length;
         var popBoxes = new Array(numBoxes);
         if(window.PopBoxes == undefined){window.PopBoxes = [];}

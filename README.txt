@@ -17,7 +17,7 @@ offering maximum flexibility to the user. All HotBox classes are
 designed to effect only the style properties necessary to perform 
 the intended task; any user CSS defined that is already under the 
 control of the script will simply be overwritten, and most of the
-time it wouldn't make sense to set these value anyway. 
+time it wouldn't make sense to set these values anyway. 
 
 In general, to create a HotBox a user must create a corresponding
 html structure of divs, which may be obtained either in that class's 
@@ -27,7 +27,7 @@ the output.
 Once the html structure is created, the parent (outermost) div is 
 given identification in the form of either an id or class. 
 Then, at the bottom of the page in a <script> block, the HotBox's
-static initHotBoxes method is called with (at least) a CSS selector
+static initBoxes method is called with (at least) a CSS selector
 string as its input. This method will create a HotBox object out of
 each of the elements with the given selector. You can call this method
 as many times as you like in order to initialize different groups of
@@ -46,7 +46,8 @@ i.e.
 Where the "some-property-name" is the optional argument that you want to set
 (it should be just the variable name, no quotes), and "some-value" is obviously
 what you want to pass to that argument. The reason for this procedure is to 
-allow for setting any number of optional variables, in any order. Arguments that
+allow for setting any number of optional variables, in any order (this is known
+as named argument setting, as opposed to positional arguments). Arguments that
 are not set are given a default value such that the objects are functional 
 regardless of any omitted optional arguments.
 

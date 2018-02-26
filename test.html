@@ -1,3 +1,4 @@
+<!-- By Joshua Wiens 26FEB2018 -->
 <!DOCTYPE html>
 
 <html>
@@ -7,20 +8,28 @@
 		<link rel="stylesheet" type="text/css" href="style/normalize.css" media="all"/>
 		<link rel="stylesheet" type="text/css" href="style/main.css" media="all"/>
         <script src="script/main.js"></script>  
+        <script src="js-ClickBox/script/ClickBox.js"></script>
         <script src="js-DropBox/script/DropBox.js"></script>
-        <script src="js-PopBox/script/PopBox.js"></script>
         <script src="js-MenuButtonBox/script/MenuButtonBox.js"></script>
+        <script src="js-PopBox/script/PopBox.js"></script>
+        <script src="js-ReelBox/script/ReelBox.js"></script>
+        <script src="js-ThreeDBox/script/ThreeDBox.js"></script>
         <script src="script/TweenMax.js"></script>      
+        <script src="script/TimelineMax.js"></script>
     </head>
 
     <body>
+    <!--The naming convention for classes corresponds
+    to their HotBox type or Component type 
+    (e.g. menu-list and db-label divs are components of a DropBox)
+    Elements will always have "box" at the end of their class name-->
         <div class="drop-box">
-            <div class="menu-button-box"></div>
+            <div class="menu-button-box"></div><!-- The MenuButtonBox is used as a db-label and turns the drop box into a mobile responsive navigation bar container -->
             <div class="menu-list">
-                <div class="drop-box">
+                <div class="drop-box"><!-- Nest DropBoxes inside the lists of other DropBoxes for a menu of dropdown menus (such as a nav bar that collapses for mobile use)  -->
                     <div class="db-label">This is a DropBox</div>
                     <div class="db-list">
-                        <div class="db-list-item">
+                        <div class="db-list-item"><!-- usually these would be links to other pages, or more DropBoxes -->
                             List Item 1
                         </div>
                         <div class="db-list-item">
@@ -31,6 +40,7 @@
                         </div>
                     </div>
                 </div>
+<!-- **********************Below is the generic DropBox Module************************* -->
                 <div class="drop-box">
                     <div class="db-label">This is a DropBox</div>
                     <div class="db-list">
@@ -42,16 +52,50 @@
                         </div>
                     </div>
                 </div>
+<!-- ********************************************************************************** -->
             </div>
         </div>
-                
+
+<!-- The following two structures are subclasses of the ClickBox
+which allows the user to create interactive menus with buttons
+on either side to cycle through any number of elements.
+In this case those elements are simple images but could be
+anything. -->
+<!-- The commented out divs are for if the user wants to use their own
+graphic/element as the buttone, otherwise the ClickBox super class
+generates the buttons automatically for any of its subclasses. -->
+        <div class="reel-box">
+            <!-- <div class = "rotate-button-left"></div> -->
+            <img src="images/gearLogo.png">
+            <img src="images/gsLogo.png">
+            <img src="images/labviewLogo.png">
+            <img src="images/linuxLogo.png">
+            <img src="images/matlabLogo.png">
+            <img src="images/ouLogo.png">
+            <!-- <div class = "rotate-button-right"></div> -->
+        </div>
+<!-- Notice the identical structure to the ReelBox -->
+        <div class="three-d-box">
+            <!-- <div class = "rotate-button-left"></div> -->
+            <img src="images/gearLogo.png">
+            <img src="images/gsLogo.png">
+            <img src="images/labviewLogo.png">
+            <img src="images/linuxLogo.png">
+            <img src="images/matlabLogo.png">
+            <img src="images/ouLogo.png">
+            <!-- <div class = "rotate-button-right"></div> -->
+        </div>
 
 
         <script>
-            var menuButtonBox = MenuButtonBox.initMenuButtonBox(".menu-button-box");
-            var dropBoxes = DropBox.initDropBoxes(".drop-box");
-            var popBoxes = PopBox.initPopBoxes(".db-label");
-            var popBoxes = PopBox.initPopBoxes(".db-list-item");
+/* Simply choose which elements should be initialized as
+what type of HotBox by calling its static init method  */
+            MenuButtonBox.initBoxes(".menu-button-box");
+            DropBox.initBoxes(".drop-box");
+            PopBox.initBoxes(".db-label");
+            PopBox.initBoxes(".db-list-item");
+            ReelBox.initBoxes(".reel-box");
+            ThreeDBox.initBoxes(".three-d-box");
         </script>
 
 

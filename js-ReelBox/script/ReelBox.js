@@ -83,7 +83,7 @@ class ReelBox extends ClickBox {
 
         box.itemCur = itemNxt;
     }
-    static initReelBoxes(selector,{buttons = "auto"}={}){
+    static initBoxes(selector,{buttons = "auto"}={}){
         var boxes = document.querySelectorAll(selector), numBoxes = boxes.length;
         var reelBoxes = new Array(numBoxes);
         if(window.ReelBoxes == undefined){window.ReelBoxes = [];}

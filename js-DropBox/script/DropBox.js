@@ -83,7 +83,7 @@ class DropBox {
         }
     }
     
-    static initDropBoxes(selector,{action = "click",actionMobile = "click"}={}){
+    static initBoxes(selector,{action = "click",actionMobile = "click"}={}){
         var boxes = document.querySelectorAll(selector), numBoxes = boxes.length;
         var dropBoxes = new Array(numBoxes);
         if(window.DropBoxes == undefined){window.DropBoxes = [];}

@@ -63,7 +63,7 @@ class ThreeDBox extends ClickBox{
         else{box.index = box.index + 1;}
         tl.add(TweenMax.to(content,incTime,{rotationY:(box.index*theta),transformOrigin:origin}));
     }
-    static initThreeDBoxes(selector,{buttons = "auto",initTime = 3,incrementTime = 1,spin = false, spinSpeed = 15, origin = true}={}){
+    static initBoxes(selector,{buttons = "auto",initTime = 3,incrementTime = 1,spin = false, spinSpeed = 15, origin = true}={}){
         var boxes = document.querySelectorAll(selector), numBoxes = boxes.length;
         var threeDBoxes = new Array(numBoxes);
         if(window.ThreeDBoxes == undefined){window.ThreeDBoxes = [];} 

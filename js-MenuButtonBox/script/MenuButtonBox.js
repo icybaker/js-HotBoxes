@@ -111,7 +111,7 @@ class MenuButtonBox {
             box.menubuttonIsActive = true;
         }
     }
-    static initMenuButtonBox(selector,{desktopOff = true,buttonColor1 = "transparent",buttonColor2 = "black",barColor1 = "darkgray",barColor2 = "white",initColors = [buttonColor1,barColor1],popColors=[buttonColor2,barColor2]}={}){
+    static initBoxes(selector,{desktopOff = true,buttonColor1 = "transparent",buttonColor2 = "black",barColor1 = "darkgray",barColor2 = "white",initColors = [buttonColor1,barColor1],popColors=[buttonColor2,barColor2]}={}){
         var boxes = document.querySelectorAll(selector), numBoxes = boxes.length;
         var menuButtonBoxes = new Array(numBoxes);
         if(window.MenuButtonBoxes == undefined){window.MenuButtonBoxes = [];} 
